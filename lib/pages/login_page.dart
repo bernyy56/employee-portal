@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:app_mcd/components/new_textfield.dart'; 
-import 'package:app_mcd/pages/register_page.dart'; 
+import 'package:app_mcd/components/new_textfield.dart';
+import 'package:app_mcd/pages/register_page.dart';
 
 class LoginPage extends StatefulWidget {
   final VoidCallback onTap;
@@ -18,40 +18,38 @@ class _LoginPageState extends State<LoginPage> {
 
   void signUserIn(BuildContext context) async {
     if (!_formKey.currentState!.validate()) {
-  
       return;
     }
 
-  showDialog(
-  context: context,
-  barrierDismissible: false,
-  builder: (BuildContext context) {
-    return Dialog(
-      backgroundColor: Colors.white, 
-      child: Padding(
-        padding: const EdgeInsets.all(20.0),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            const CircularProgressIndicator(),
-            const SizedBox(width: 20),
-            Text("Signing in..."),
-          ],
-        ),
-      ),
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return Dialog(
+          backgroundColor: Colors.white,
+          child: Padding(
+            padding: const EdgeInsets.all(20.0),
+            child: Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const CircularProgressIndicator(),
+                const SizedBox(width: 20),
+                Text("Signing in..."),
+              ],
+            ),
+          ),
+        );
+      },
     );
-  },
-);
 
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: emailController.text.trim(),
         password: passwordController.text.trim(),
       );
-      Navigator.of(context).pop(); 
-      
+      Navigator.of(context).pop();
     } on FirebaseAuthException catch (e) {
-      Navigator.of(context).pop(); 
+      Navigator.of(context).pop();
       showErrorMessage(e.message ?? 'An error occurred. Please try again.');
     }
   }
@@ -105,9 +103,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ),
                   TextButton(
-                    onPressed: () {
-                      
-                    },
+                    onPressed: () {},
                     child: const Text(
                       'Forgot Password?',
                       style: TextStyle(decoration: TextDecoration.underline, color: Colors.blue),

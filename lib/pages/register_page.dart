@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:app_mcd/components/new_textfield.dart'; 
-import 'package:app_mcd/pages/login_page.dart'; 
+import 'package:app_mcd/components/new_textfield.dart';
+import 'package:app_mcd/pages/login_page.dart';
 
 class RegisterPage extends StatefulWidget {
   final VoidCallback? onTap;
@@ -20,7 +20,7 @@ class _RegisterPageState extends State<RegisterPage> {
 
   void signUserUp(BuildContext context) async {
     if (!_formKey.currentState!.validate()) {
-      return; 
+      return;
     }
 
     if (passwordController.text != confirmPasswordController.text) {
@@ -53,9 +53,9 @@ class _RegisterPageState extends State<RegisterPage> {
         email: emailController.text.trim(),
         password: passwordController.text.trim(),
       );
-      Navigator.of(context).pop(); 
+      Navigator.of(context).pop();
     } on FirebaseAuthException catch (e) {
-      Navigator.of(context).pop(); 
+      Navigator.of(context).pop();
       showErrorMessage('Failed to sign up: ${e.message}');
     }
   }
@@ -105,7 +105,7 @@ class _RegisterPageState extends State<RegisterPage> {
                     onPressed: () => signUserUp(context),
                     child: const Text('Sign Up'),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor:Colors.yellow,
+                      backgroundColor: Colors.yellow,
                       foregroundColor: Colors.white,
                       minimumSize: const Size(150, 50),
                     ),
@@ -116,7 +116,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                   const SizedBox(height: 20),
                   GestureDetector(
-                    onTap: () => Navigator.pop(context), 
+                    onTap: () => Navigator.pop(context),
                     child: const Text(
                       'Already have an account? Login here',
                       style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold, decoration: TextDecoration.underline),
@@ -132,6 +132,7 @@ class _RegisterPageState extends State<RegisterPage> {
     );
   }
 }
+
 
 
 

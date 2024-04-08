@@ -43,7 +43,6 @@ class _HomePageState extends State<HomePage> {
       Theme(
         data: ThemeData(
           primarySwatch: Colors.yellow,
-          // Other theme customizations...
         ),
         child: CalendarDatePicker(
           initialDate: DateTime.now(),
@@ -136,7 +135,6 @@ class ProfileScreen extends StatelessWidget {
         Divider(color: Colors.green),
         ListTile(
           leading: CircleAvatar(
-            // Replace with your own image provider or asset
             backgroundImage: NetworkImage('https://via.placeholder.com/150'),
           ),
           title: Text(
@@ -176,7 +174,6 @@ class ProfileScreen extends StatelessWidget {
           subtitle: Text('Dan'),
           trailing: TextButton(
             onPressed: () {
-              // Implement navigation or functionality for editing
             },
             child: Text('Edit', style: TextStyle(color: const Color.fromARGB(255, 135, 76, 175))),
           ),
@@ -189,7 +186,7 @@ class ProfileScreen extends StatelessWidget {
           title: Text('Phone (work)', style: TextStyle(fontWeight: FontWeight.bold)),
           subtitle: Text('416-659-1543'),
         ),
-        // ... Add more ListTiles for additional information
+
       ],
     );
   }

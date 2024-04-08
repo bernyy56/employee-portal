@@ -28,4 +28,3 @@ class AuthPage extends StatelessWidget {
     );
   }
 }
- 
